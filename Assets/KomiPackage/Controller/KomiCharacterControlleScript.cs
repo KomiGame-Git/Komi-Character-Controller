@@ -118,7 +118,7 @@ public class KomiCharacterControlleScript : MonoBehaviour
             }
 
             this.GroundCheckScript = this.Character.AddComponent<KomiGroundCheckScript>();
-            this.GroundCheckScript.CheckAction = this.GroundCheck;
+            this.GroundCheckScript.OnCollisionEvent = this.GroundCheck;
 
         }
         else

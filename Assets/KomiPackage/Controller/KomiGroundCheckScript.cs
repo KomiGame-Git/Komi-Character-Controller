@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class KomiGroundCheckScript: MonoBehaviour
 {
-
-    public Action<Collision> CheckAction;
+    public delegate void OnCollisionEventHandler<T>(T args);
+    public OnCollisionEventHandler<Collision> OnCollisionEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +22,10 @@ public class KomiGroundCheckScript: MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(CheckAction != null)
+        
+        if (this.OnCollisionEvent != null)
         {
-            this.CheckAction(collision);
+            this.OnCollisionEvent(collision);
         }
     }
 }
